@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="pt-MZ">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Utomi | Proteja a sua seguradora de saúde</title>
+    <meta
+      name="description"
+      content="Ajudamos seguradoras de saúde em Moçambique a reduzir fraudes, omissões de doenças e a reter os melhores clientes."
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      /* ===================== RESET & BASE ===================== */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary: #0a6e5c;
+        --primary-dark: #064f42;
+        --primary-light: #e6f4f1;
+        --accent: #f2a93b;
+        --danger: #c0392b;
+        --text: #1a2b32;
+        --text-light: #5a6b72;
+        --bg: #ffffff;
+        --bg-alt: #f7faf9;
+        --border: #e1eae7;
+        --shadow: 0 4px 24px rgba(10, 110, 92, 0.08);
+        --shadow-lg: 0 12px 48px rgba(10, 110, 92, 0.12);
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 0 24px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        line-height: 1.2;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+      }
+      h1 {
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 800;
+      }
+      h2 {
+        font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+        margin-bottom: 16px;
+      }
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 8px;
+      }
+      p {
+        color: var(--text-light);
+        font-size: 1.05rem;
+      }
+
+      /* ===================== HEADER / NAV ===================== */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border);
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+      header.scrolled {
+        box-shadow: var(--shadow);
+      }
+
+      nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 16px 24px;
+        max-width: 1140px;
+        margin: 0 auto;
+      }
+      .logo {
+        font-weight: 800;
+        font-size: 1.35rem;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .logo-dot {
+        width: 10px;
+        height: 10px;
+        background: var(--accent);
+        border-radius: 50%;
+        display: inline-block;
+      }
+      .nav-cta {
+        background: var(--primary);
+        color: white;
+        padding: 10px 20px;
+        border-radius: 8px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+        transition: all 0.3s;
+      }
+      .nav-cta:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+      }
+
+      /* ===================== HERO ===================== */
+      .hero {
+        padding: 160px 0 100px;
+        background: linear-gradient(
+          180deg,
+          var(--primary-light) 0%,
+          #ffffff 100%
+        );
+        position: relative;
+        overflow: hidden;
+      }
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(
+          circle,
+          rgba(10, 110, 92, 0.08),
+          transparent 70%
+        );
+        border-radius: 50%;
+      }
+      .hero-content {
+        position: relative;
+        z-index: 1;
+        max-width: 780px;
+      }
+      .badge {
+        display: inline-block;
+        background: white;
+        color: var(--primary);
+        padding: 6px 14px;
+        border-radius: 100px;
+        font-size: 0.85rem;
+        font-weight: 600;
+        border: 1px solid var(--border);
+        margin-bottom: 24px;
+      }
+      .hero h1 {
+        margin-bottom: 24px;
+      }
+      .hero h1 .highlight {
+        color: var(--primary);
+      }
+      .hero p {
+        font-size: 1.15rem;
+        margin-bottom: 36px;
+        max-width: 640px;
+      }
+
+      .cta-group {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 16px 28px;
+        border-radius: 10px;
+        font-weight: 600;
+        font-size: 1rem;
+        text-decoration: none;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-family: inherit;
+      }
+      .btn-primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 4px 16px rgba(10, 110, 92, 0.25);
+      }
+      .btn-primary:hover {
+        background: var(--primary-dark);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(10, 110, 92, 0.35);
+      }
+      .btn-secondary {
+        background: white;
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
+      .btn-secondary:hover {
+        background: var(--primary-light);
+        transform: translateY(-2px);
+      }
+
+      /* ===================== PAIN SECTION ===================== */
+      .pain {
+        background: var(--bg-alt);
+      }
+      .pain-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 40px;
+      }
+      .pain-card {
+        background: white;
+        padding: 28px 24px;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--danger);
+        transition: all 0.3s;
+      }
+      .pain-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-lg);
+      }
+      .pain-card .icon {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background: #fdedec;
+        border-radius: 8px;
+      }
+      .pain-card h3 {
+        color: var(--text);
+      }
+      .pain-card p {
+        font-size: 0.95rem;
+      }
+
+      .pain-reinforce {
+        text-align: center;
+        margin-top: 40px;
+        font-style: italic;
+        font-size: 1.1rem;
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      /* ===================== SOLUTION SECTION ===================== */
+      .solution-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 24px;
+        margin-top: 40px;
+      }
+      .solution-card {
+        background: white;
+        padding: 32px 28px;
+        border-radius: 14px;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        transition: all 0.3s;
+        position: relative;
+      }
+      .solution-card:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--shadow-lg);
+      }
+      .solution-card .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--primary-light);
+        color: var(--primary);
+        font-weight: 800;
+        font-size: 1.1rem;
+        margin-bottom: 16px;
+      }
+      .solution-card h3 {
+        color: var(--primary-dark);
+        margin-bottom: 12px;
+      }
+      .solution-card p {
+        font-size: 0.98rem;
+      }
+
+      /* ===================== BENEFITS SECTION ===================== */
+      .benefits {
+        background: var(--primary);
+        color: white;
+      }
+      .benefits h2 {
+        color: white;
+      }
+      .benefits-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 18px;
+        margin-top: 40px;
+      }
+      .benefit-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 18px 20px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        transition: all 0.3s;
+      }
+      .benefit-item:hover {
+        background: rgba(255, 255, 255, 0.14);
+      }
+      .benefit-check {
+        flex-shrink: 0;
+        width: 24px;
+        height: 24px;
+        background: var(--accent);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: white;
+      }
+      .benefit-item p {
+        color: white;
+        font-weight: 500;
+        margin: 0;
+        font-size: 1rem;
+      }
+
+      /* ===================== FINAL CTA ===================== */
+      .final-cta {
+        text-align: center;
+        background: var(--bg-alt);
+      }
+      .final-cta h2 {
+        margin-bottom: 16px;
+      }
+      .final-cta p {
+        max-width: 620px;
+        margin: 0 auto 36px;
+        font-size: 1.1rem;
+      }
+      .final-cta .cta-group {
+        justify-content: center;
+      }
+
+      /* ===================== FOOTER ===================== */
+      footer {
+        background: var(--primary-dark);
+        color: white;
+        padding: 40px 0 30px;
+        text-align: center;
+      }
+      footer .logo {
+        color: white;
+        justify-content: center;
+        margin-bottom: 16px;
+      }
+      footer p {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 0.9rem;
+        margin: 4px 0;
+      }
+      footer a {
+        color: var(--accent);
+        text-decoration: none;
+      }
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      /* ===================== MODAL / FORM ===================== */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(10, 43, 50, 0.7);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 2000;
+        padding: 20px;
+        opacity: 0;
+        transition: opacity 0.3s;
+      }
+      .modal-overlay.active {
+        display: flex;
+        opacity: 1;
+      }
+      .modal {
+        background: white;
+        border-radius: 16px;
+        max-width: 520px;
+        width: 100%;
+        padding: 40px 36px;
+        position: relative;
+        max-height: 90vh;
+        overflow-y: auto;
+        box-shadow: var(--shadow-lg);
+        transform: translateY(20px);
+        transition: transform 0.3s;
+      }
+      .modal-overlay.active .modal {
+        transform: translateY(0);
+      }
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 16px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: var(--text-light);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.2s;
+      }
+      .modal-close:hover {
+        background: var(--bg-alt);
+        color: var(--text);
+      }
+      .modal h3 {
+        color: var(--primary-dark);
+        margin-bottom: 8px;
+        font-size: 1.5rem;
+      }
+      .modal > p {
+        margin-bottom: 24px;
+        font-size: 0.98rem;
+      }
+
+      .form-group {
+        margin-bottom: 18px;
+      }
+      .form-group label {
+        display: block;
+        font-weight: 600;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+        color: var(--text);
+      }
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        width: 100%;
+        padding: 12px 14px;
+        border: 1.5px solid var(--border);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.2s;
+        background: white;
+      }
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(10, 110, 92, 0.1);
+      }
+      .form-group textarea {
+        resize: vertical;
+        min-height: 80px;
+      }
+
+      .form-submit {
+        width: 100%;
+        padding: 14px;
+        background: var(--primary);
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        font-family: inherit;
+      }
+      .form-submit:hover {
+        background: var(--primary-dark);
+      }
+      .form-submit:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .form-success {
+        text-align: center;
+        padding: 20px 0;
+        display: none;
+      }
+      .form-success .check {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: var(--primary-light);
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.8rem;
+        margin: 0 auto 16px;
+      }
+      .form-success h4 {
+        color: var(--primary-dark);
+        margin-bottom: 8px;
+        font-size: 1.2rem;
+      }
+
+      /* ===================== WHATSAPP FLOAT ===================== */
+      .whatsapp-float {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        background: #25d366;
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 6px 24px rgba(37, 211, 102, 0.4);
+        z-index: 1500;
+        transition: all 0.3s;
+        text-decoration: none;
+      }
+      .whatsapp-float:hover {
+        transform: scale(1.1);
+        box-shadow: 0 8px 32px rgba(37, 211, 102, 0.5);
+      }
+      .whatsapp-float svg {
+        width: 32px;
+        height: 32px;
+      }
+
+      /* ===================== ANIMATIONS ===================== */
+      .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease, transform 0.6s ease;
+      }
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* ===================== RESPONSIVE ===================== */
+      @media (max-width: 640px) {
+        section {
+          padding: 60px 0;
+        }
+        .hero {
+          padding: 130px 0 70px;
+        }
+        .cta-group {
+          flex-direction: column;
+        }
+        .btn {
+          width: 100%;
+          justify-content: center;
+        }
+        .modal {
+          padding: 32px 24px;
+        }
+        .nav-cta {
+          padding: 8px 14px;
+          font-size: 0.85rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ===================== HEADER ===================== -->
+    <header id="header">
+      <nav>
+        <div class="logo"><span class="logo-dot"></span>Utomi</div>
+        <a href="#contacto" class="nav-cta">Falar connosco</a>
+      </nav>
+    </header>
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero">
+      <div class="container hero-content">
+        <span class="badge"
+          >🇲🇿 Feito em Moçambique, para seguradoras de saúde</span
+        >
+        <h1>
+          Proteja a sua seguradora de saúde contra
+          <span class="highlight">fraudes</span>, omissão de doenças e perda de
+          <span class="highlight">bons clientes</span>.
+        </h1>
+        <p>
+          Ajudamos seguradoras de saúde em Moçambique a validar a veracidade das
+          declarações dos segurados, controlar fraudes no uso do seguro/apólice
+          e manter os dados clínicos sempre atualizados - com uma equipa
+          especializada, sem precisar de investir em tecnologia.
+        </p>
+        <div class="cta-group">
+          <a href="#contacto" class="btn btn-primary" onclick="openModal(event)"
+            >👉 Quero uma conversa de 15 minutos</a
+          >
+          <a
+            href="https://wa.me/258824976175?text=Ol%C3%A1%2C%20vi%20a%20p%C3%A1gina%20da%20Sa%C3%BAdeVerifica%20e%20quero%20saber%20mais."
+            target="_blank"
+            rel="noopener"
+            class="btn btn-secondary"
+            >💬 Falar no WhatsApp</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PAIN ===================== -->
+    <section class="pain">
+      <div class="container">
+        <div class="fade-in">
+          <h2>Reconhece algum destes problemas na sua seguradora de saúde?</h2>
+          <p>
+            Cada uma destas falhas custa dinheiro, tempo e reputação à sua
+            operação.
+          </p>
+        </div>
+
+        <div class="pain-grid">
+          <div class="pain-card fade-in">
+            <div class="icon">⚠️</div>
+            <h3>Declarações falsas ou omissas</h3>
+            <p>
+              Clientes escondem doenças pré-existentes (diabetes, hipertensão,
+              Tubercole, etc) para pagar um plano mais barato - e só descobrimos
+              quando o custo já explodiu.
+            </p>
+          </div>
+          <div class="pain-card fade-in">
+            <div class="icon">🚫</div>
+            <h3>Fraudes e cobranças ilícitas</h3>
+            <p>
+              Uso da carteirinha por terceiros e hospitais que cobram por
+              procedimentos não realizados ou inflacionam contas médicas.
+            </p>
+          </div>
+          <div class="pain-card fade-in">
+            <div class="icon">📄</div>
+            <h3>Processos manuais e morosos</h3>
+            <p>
+              Pilhas de formulários, prontuários em papel e aprovações que
+              demoram dias, atrasando o atendimento e a auditoria.
+            </p>
+          </div>
+          <div class="pain-card fade-in">
+            <div class="icon">📉</div>
+            <h3>Dificuldade em reter clientes</h3>
+            <p>
+              Os clientes saudáveis cancelam por acharem que pagam à toa; os de
+              alto risco ficam - e a sinistralidade sobe.
+            </p>
+          </div>
+          <div class="pain-card fade-in">
+            <div class="icon">🔍</div>
+            <h3>Falta de dados atualizados</h3>
+            <p>
+              A seguradora não sabe se o cliente mudou de cidade, de emprego ou
+              desenvolveu uma nova condição clínica.
+            </p>
+          </div>
+        </div>
+
+        <p class="pain-reinforce">
+          Cada uma destas falhas custa dinheiro, tempo e reputação à sua
+          seguradora de saúde.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== SOLUTION ===================== -->
+    <section class="solution">
+      <div class="container">
+        <div class="fade-in">
+          <h2>Uma solução completa para gerir o risco do segurado de saúde</h2>
+          <p>
+            Da contratação à renovação - entregue por uma equipa local que
+            conhece a realidade das seguradoras e dos hospitais em Moçambique.
+          </p>
+        </div>
+
+        <div class="solution-grid">
+          <div class="solution-card fade-in">
+            <div class="num">1</div>
+            <h3>Verificação e Validação de Segurados (KYC na Saúde)</h3>
+            <p>
+              Confirmamos a identidade do proponente e cruzamos a sua declaração
+              de saúde com registos de internamentos anteriores (hospitais
+              públicos e privados, redes credenciadas). Detetamos omissões antes
+              de aprovar o plano.
+            </p>
+          </div>
+          <div class="solution-card fade-in">
+            <div class="num">2</div>
+            <h3>Auditoria de Contas Hospitalares</h3>
+            <p>
+              Analisamos as contas enviadas por hospitais e clínicas para
+              confirmar se os procedimentos cobrados foram realmente realizados
+              e se os valores estão dentro da tabela acordada. Bloqueamos
+              cobranças ilícitas antes do pagamento.
+            </p>
+          </div>
+          <div class="solution-card fade-in">
+            <div class="num">3</div>
+            <h3>Atualização Contínua de Dados Clínicos e Cadastrais</h3>
+            <p>
+              Mantemos o perfil do segurado sempre atualizado, com contacto
+              periódico e verificação de alterações relevantes (mudança de
+              endereço, novos diagnósticos, alteração de agregado familiar).
+            </p>
+          </div>
+          <div class="solution-card fade-in">
+            <div class="num">4</div>
+            <h3>Acompanhamento e Retenção de Clientes</h3>
+            <p>
+              Identificamos os segurados mais saudáveis (que dão lucro) e os que
+              estão em risco de cancelar. Agimos proativamente com benefícios e
+              contacto personalizado para os manter.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== BENEFITS ===================== -->
+    <section class="benefits">
+      <div class="container">
+        <div class="fade-in">
+          <h2>O que a sua seguradora de saúde ganha:</h2>
+        </div>
+
+        <div class="benefits-grid">
+          <div class="benefit-item fade-in">
+            <div class="benefit-check">✓</div>
+            <p>Redução de fraudes na contratação e no uso da apólice.</p>
+          </div>
+          <div class="benefit-item fade-in">
+            <div class="benefit-check">✓</div>
+            <p>
+              Menos omissões de doenças pré-existentes - risco mais bem
+              precificado.
+            </p>
+          </div>
+          <div class="benefit-item fade-in">
+            <div class="benefit-check">✓</div>
+            <p>Auditoria de contas hospitalares mais rápida e rigorosa.</p>
+          </div>
+          <div class="benefit-item fade-in">
+            <div class="benefit-check">✓</div>
+            <p>Retenção dos clientes saudáveis com ações proativas.</p>
+          </div>
+          <div class="benefit-item fade-in">
+            <div class="benefit-check">✓</div>
+            <p>
+              Visão 360 do segurado - histórico clínico, sinistros e pagamentos
+              num só lugar.
+            </p>
+          </div>
+          <div class="benefit-item fade-in">
+            <div class="benefit-check">✓</div>
+            <p>
+              Informação sempre atualizada sobre quem são os seus segurados.
+            </p>
+          </div>
+          <div class="benefit-item fade-in">
+            <div class="benefit-check">✓</div>
+            <p>
+              Identificação clara dos clientes mais rentáveis para a seguradora.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FINAL CTA ===================== -->
+    <section class="final-cta" id="contacto">
+      <div class="container">
+        <div class="fade-in">
+          <h2>
+            Pronto para reduzir fraudes e proteger a saúde financeira da sua
+            seguradora?
+          </h2>
+          <p>
+            Agende uma conversa de 15 minutos sem compromisso. Vamos mostrar
+            como funciona na prática, com casos reais do setor de saúde em
+            Moçambique.
+          </p>
+          <div class="cta-group">
+            <button class="btn btn-primary" onclick="openModal(event)">
+              👉 Agendar conversa gratuita
+            </button>
+            <a
+              href="https://wa.me/258824976175?text=Ol%C3%A1%2C%20vi%20a%20p%C3%A1gina%20da%20Sa%C3%BAdeVerifica%20e%20quero%20saber%20mais."
+              target="_blank"
+              rel="noopener"
+              class="btn btn-secondary"
+              >💬 Prefere WhatsApp? Clique aqui</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== FOOTER ===================== -->
+    <footer>
+      <div class="container">
+        <div class="logo"><span class="logo-dot"></span> Utomi</div>
+        <p>Feito em Moçambique, para seguradoras de saúde moçambicanas.</p>
+        <p>
+          📧
+          <a href="mailto:ritsure.julai.jose@gmail.com">contacto@utomi.co.mz</a>
+        </p>
+        <p style="margin-top: 16px; font-size: 0.85rem">
+          © <span id="year"></span> Utomi. Todos os direitos reservados.
+        </p>
+      </div>
+    </footer>
+
+    <!-- ===================== WHATSAPP FLOAT ===================== -->
+    <a
+      href="https://wa.me/258824976175?text=Ol%C3%A1%2C%20vi%20a%20p%C3%A1gina%20da%20Sa%C3%BAdeVerifica%20e%20quero%20saber%20mais."
+      target="_blank"
+      rel="noopener"
+      class="whatsapp-float"
+      aria-label="Falar no WhatsApp"
+    >
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path
+          d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"
+        />
+      </svg>
+    </a>
+
+    <!-- ===================== MODAL FORM ===================== -->
+    <div class="modal-overlay" id="modal">
+      <div class="modal">
+        <button class="modal-close" onclick="closeModal()" aria-label="Fechar">
+          ×
+        </button>
+
+        <div id="formContainer">
+          <h3>Agende a sua conversa de 15 minutos</h3>
+          <p>
+            Sem compromisso. Vamos ouvir as suas dores e mostrar como a Utomi
+            pode ajudar.
+          </p>
+
+          <form
+            id="leadForm"
+            action="https://formspree.io/f/xrpgwqyr"
+            method="POST"
+          >
+            <div class="form-group">
+              <label for="nome">Nome completo *</label>
+              <input type="text" id="nome" name="nome" required />
+            </div>
+            <div class="form-group">
+              <label for="empresa">Seguradora / Empresa *</label>
+              <input type="text" id="empresa" name="empresa" required />
+            </div>
+            <div class="form-group">
+              <label for="cargo">Cargo *</label>
+              <input type="text" id="cargo" name="cargo" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email profissional *</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="telefone">Telefone / WhatsApp *</label>
+              <input type="tel" id="telefone" name="telefone" required />
+            </div>
+            <div class="form-group">
+              <label for="dor"
+                >Qual é a maior dor da sua seguradora hoje? *</label
+              >
+              <select id="dor" name="dor" required>
+                <option value="">Selecione...</option>
+                <option>Declarações falsas / omissão de doenças</option>
+                <option>Fraudes e cobranças ilícitas</option>
+                <option>Processos manuais e morosos</option>
+                <option>Dificuldade em reter clientes</option>
+                <option>Falta de dados atualizados sobre o segurado</option>
+                <option>Outra</option>
+              </select>
+            </div>
+            <button type="submit" class="form-submit">
+              Enviar pedido de conversa
+            </button>
+          </form>
+        </div>
+
+        <div class="form-success" id="formSuccess">
+          <div class="check">✓</div>
+          <h4>Recebemos o seu pedido!</h4>
+          <p>
+            Entraremos em contacto dentro de 24 horas para agendar a conversa.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===================== JAVASCRIPT ===================== -->
+    <script>
+      // ---- Ano no rodapé ----
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      // ---- Header shadow ao scroll ----
+      const header = document.getElementById("header");
+      window.addEventListener("scroll", () => {
+        header.classList.toggle("scrolled", window.scrollY > 20);
+      });
+
+      // ---- Animação de entrada (fade-in) ----
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.12 }
+      );
+
+      document
+        .querySelectorAll(".fade-in")
+        .forEach((el) => observer.observe(el));
+
+      // ---- Modal ----
+      const modal = document.getElementById("modal");
+
+      function openModal(e) {
+        if (e) e.preventDefault();
+        modal.classList.add("active");
+        document.body.style.overflow = "hidden";
+      }
+
+      function closeModal() {
+        modal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+
+      // Fechar ao clicar fora do modal
+      modal.addEventListener("click", (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      // Fechar com ESC
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && modal.classList.contains("active"))
+          closeModal();
+      });
+
+      // ---- Submissão do formulário (Formspree) ----
+      const form = document.getElementById("leadForm");
+      const formContainer = document.getElementById("formContainer");
+      const formSuccess = document.getElementById("formSuccess");
+
+      form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const submitBtn = form.querySelector(".form-submit");
+        submitBtn.disabled = true;
+        submitBtn.textContent = "A enviar...";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          });
+
+          if (response.ok) {
+            formContainer.style.display = "none";
+            formSuccess.style.display = "block";
+          } else {
+            throw new Error("Falha no envio");
+          }
+        } catch (err) {
+          alert(
+            "Ocorreu um erro ao enviar. Por favor, tente novamente ou contacte-nos por WhatsApp."
+          );
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Enviar pedido de conversa";
+        }
+      });
+    </script>
+  </body>
+</html>
